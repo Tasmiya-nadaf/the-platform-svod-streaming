@@ -1,0 +1,8 @@
+{
+  "name": "The Platform: SVOD Movie & Video Streaming Service",
+  "description": "Production-ready Subscription Video-on-Demand (SVOD) streaming platform implementing Adaptive Bitrate Streaming (ABS), multi-profiles, parental locks, multi-DRM, concurrent session enforcement, and React Native mobile export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

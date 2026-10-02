@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "Task": {
+      "title": "Task",
+      "description": "A task item managed by a user with offline sync metadata",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the task"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user ID"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "Title of the task"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 2000,
+          "description": "Detailed notes or markdown description"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["todo", "in_progress", "completed"],
+          "description": "Workflow state"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "urgent"],
+          "description": "Urgency and priority level"
+        },
+        "category": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "Category or project label"
+        },
+        "dueDate": {
+          "type": "string",
+          "description": "Due date in ISO format or YYYY-MM-DD"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        },
+        "syncVersion": {
+          "type": "number",
+          "description": "Vector clock or version increment for conflict resolution"
+        }
+      },
+      "required": ["id", "userId", "title", "status", "priority", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": "Task",
+      "description": "User specific tasks synchronized in real-time"
+    }
+  }
+}
